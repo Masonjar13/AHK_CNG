@@ -40,5 +40,13 @@ str.="SHA256+HMAC (file):      " . bcrypt.hmac.sha256(fpath,ss,1) . "`n"
 str.="SHA384+HMAC (file):      " . bcrypt.hmac.sha384(fpath,ss,1) . "`n"
 str.="SHA512+HMAC (file):      " . bcrypt.hmac.sha512(fpath,ss,1) . "`n`n"
 
+str.="MD2+PBKDF2:              " . bcrypt.pbkdf2.md2(ms,ss) . "`n"
+str.="MD4+PBKDF2:              " . bcrypt.pbkdf2.md4(ms,ss) . "`n"
+str.="MD5+PBKDF2:              " . bcrypt.pbkdf2.md5(ms,ss) . "`n"
+str.="SHA1+PBKDF2:             " . bcrypt.pbkdf2.sha1(ms,ss) . "`n"
+str.="SHA256+PBKDF2:           " . bcrypt.pbkdf2.sha256(ms,ss) . "`n"
+str.="SHA384+PBKDF2:           " . bcrypt.pbkdf2.sha384(ms,ss) . "`n"
+str.="SHA512+PBKDF2:           " . bcrypt.pbkdf2.sha512(ms,ss) . "`n`n"
+
 clipboard:=str
 exitApp

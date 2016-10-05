@@ -86,7 +86,8 @@
         loop % cbHash
             hash .= Format("{:02x}", NumGet(pbHash, A_Index - 1, "UChar"))
 
-        DllCall("bcrypt\BCryptDestroyHash", "ptr", hHash)
+        if(a_OSVersion!="Win_10")
+            DllCall("bcrypt\BCryptDestroyHash", "ptr", hHash)
         DllCall("bcrypt\BCryptCloseAlgorithmProvider", "ptr", hAlgo, "uint", 0)
         DllCall("FreeLibrary", "ptr", hBCRYPT)
         
@@ -176,7 +177,8 @@
             loop % cbHash
                 hash .= Format("{:02x}", NumGet(pbHash, A_Index - 1, "UChar"))
             
-            DllCall("bcrypt\BCryptDestroyHash", "ptr", hHash)
+            if(a_OSVersion!="Win_10")
+                DllCall("bcrypt\BCryptDestroyHash", "ptr", hHash)
             DllCall("bcrypt\BCryptCloseAlgorithmProvider", "ptr", hAlgo, "uint", 0)
             DllCall("FreeLibrary", "ptr", hBCRYPT)
             
